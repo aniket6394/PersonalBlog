@@ -1,4 +1,4 @@
-export default async function fetchBlogs() {
+export async function fetchBlogs() {
   const url = "http://localhost:3000/blogs";
   const response = await fetch(url);
   if (!response.ok) {
@@ -9,4 +9,15 @@ export default async function fetchBlogs() {
   }
   const { blogs } = await response.json();
   return blogs;
+}
+export async function fetchBlogById(id) {
+  const url = `http://localhost:3000/blog/${id}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    const error = new Error("An error occurred while fetching the events");
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+  return response.json();
 }

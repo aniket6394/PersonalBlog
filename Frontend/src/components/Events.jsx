@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import fetchBlogs from "../util/http";
+import { fetchBlogs } from "../util/http";
 import Header from "./Header";
+import { Link } from "react-router";
 import "./Events.css";
 
 const formatDate = (dateString) => {
@@ -37,8 +38,10 @@ export default function Events() {
       <ul className="blog-list">
         {data.map((item) => (
           <li key={item.id} className="blog-item">
-            <span className="blog-title">{item.title}</span>
-            <span className="blog-date">{formatDate(item.date)}</span>
+            <Link to={`/blog/${item.id}`} className="blog-link">
+              <span className="blog-title">{item.title}</span>
+              <span className="blog-date">{formatDate(item.date)}</span>
+            </Link>
           </li>
         ))}
       </ul>
