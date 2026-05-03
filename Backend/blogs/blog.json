@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "The Accidental Discovery of Penicillin",
+    "content": "In 1928, Alexander Fleming returned from vacation to find that mold had contaminated one of his petri dishes. Instead of throwing it away, he noticed something strange — the bacteria around the mold had been destroyed. That mold turned out to be Penicillium, and it led to the discovery of penicillin, the world's first antibiotic. This accident revolutionized medicine and has saved millions of lives.",
+    "date": "2026-05-03"
+  },
+  {
+    "id": 2,
+    "title": "Microwave Oven: A Melted Chocolate Moment",
+    "content": "Engineer Percy Spencer was working on radar technology when he noticed a chocolate bar in his pocket had melted. Curious, he experimented with popcorn and eggs, discovering that microwaves could cook food. This accidental observation led to the invention of the microwave oven, now a staple in kitchens worldwide.",
+    "date": "2026-05-04"
+  },
+  {
+    "id": 3,
+    "title": "X-Rays: Seeing the Invisible",
+    "content": "Wilhelm Roentgen was experimenting with cathode rays when he noticed a fluorescent screen glowing unexpectedly. Investigating further, he realized he had discovered a new type of radiation that could pass through solid objects. He called them X-rays, and this accidental discovery transformed medical diagnostics forever.",
+    "date": "2026-05-05"
+  },
+  {
+    "id": 4,
+    "title": "Post-it Notes: A Failed Glue That Stuck Around",
+    "content": "Spencer Silver was trying to create a super-strong adhesive but ended up with a weak, reusable one instead. Years later, his colleague Art Fry used it to bookmark pages in his hymn book. This 'failed' invention became Post-it Notes, one of the most widely used office supplies in the world.",
+    "date": "2026-05-06"
+  },
+  {
+    "id": 5,
+    "title": "Coca-Cola: From Medicine to Global Drink",
+    "content": "Coca-Cola was originally invented by John Pemberton as a medicinal tonic. Due to a simple mistake — mixing the syrup with carbonated water instead of plain water — the iconic fizzy drink was born. What started as a pharmacy experiment became one of the most popular beverages in history.",
+    "date": "2026-05-07"
+  }
+]
