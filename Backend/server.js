@@ -2,8 +2,11 @@ const express = require("express");
 const fs = require("fs/promises");
 const cors = require("cors");
 const app = express();
-app.use(cors());
+const jwt = require("jsonwebtoken");
+const authMiddleware = require("./auth.js");
 app.use(express.json());
+app.use(cors());
+const SECRET = "mysecretkey";
 app.get("/blogs", async (req, res) => {
   const fileContent = await fs.readFile("./blogs/blog.json");
   let blogs = JSON.parse(fileContent);
@@ -36,6 +39,30 @@ app.get("/blog/:id", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: "Error reading file" });
   }
+});
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  if (email === "admin@gmail.com" && password === "1234") {
+    const token = jwt.sign(
+      { email: email }, // payload
+      SECRET, // secret key
+      { expiresIn: "1h" }, // optional
+    );
+    return res.json({ token });
+  }
+  res.status(401).json({ message: "Invalid credentials" });
+});
+app.use(authMiddleware);
+app.get("/admin", async (req, res) => {
+  const fileContent = await fs.readFile("./blogs/blog.json");
+  let blogs = JSON.parse(fileContent);
+  res.json({
+    blogs: blogs.map((blogs) => ({
+      id: blogs.id,
+      title: blogs.title,
+      date: blogs.date,
+    })),
+  });
 });
 const PORT = 3000;
 // start server

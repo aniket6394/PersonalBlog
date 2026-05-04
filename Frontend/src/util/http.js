@@ -1,3 +1,5 @@
+import { QueryClient } from "@tanstack/react-query";
+export const query = new QueryClient();
 export async function fetchBlogs() {
   const url = "http://localhost:3000/blogs";
   const response = await fetch(url);
@@ -20,4 +22,37 @@ export async function fetchBlogById(id) {
     throw error;
   }
   return response.json();
+}
+export async function adminBlog({ token }) {
+  const response = await fetch("http://localhost:3000/admin", {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch admin blogs");
+  }
+
+  const data = await response.json();
+  return data;
+}
+export async function loginUser({ email, password }) {
+  const url = "http://localhost:3000/login";
+  const response = await fetch(url, {
+    method: "POST", // ⚠️ must be string
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Login failed");
+  }
+  localStorage.setItem("token", data.token);
+  return data;
 }
