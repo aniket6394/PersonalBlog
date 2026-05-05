@@ -2,11 +2,11 @@ import { useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { loginUser } from "../util/http";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 export default function Login() {
   const email = useRef();
   const password = useRef();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const mutation = useMutation({
     mutationFn: () =>
@@ -15,7 +15,7 @@ export default function Login() {
         password: password.current.value,
       }),
     onSuccess: () => {
-      navigate("/admin"); 
+      navigate("/admin");
     },
   });
 
@@ -26,19 +26,30 @@ export default function Login() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email"></label>
-        <input type="email" required ref={email} />
+      <div className="login-container">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Login</h2>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" required ref={email} />
+          </div>
 
-        <label htmlFor="password"></label>
-        <input type="password" required ref={password} />
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" required ref={password} />
+          </div>
 
-        <button type="submit">
-          {mutation.isPending ? "Logging in..." : "Submit"}
-        </button>
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={mutation.isPending}
+          >
+            {mutation.isPending ? "Logging in..." : "Submit"}
+          </button>
 
-        {mutation.isError && <p>Login failed</p>}
-      </form>
+          {mutation.isError && <p className="error-message">Login failed</p>}
+        </form>
+      </div>
     </>
   );
 }

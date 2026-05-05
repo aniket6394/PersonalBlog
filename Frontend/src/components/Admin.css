@@ -1,0 +1,117 @@
+.admin-container {
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 24px;
+  background: #faf9f7;
+  border: 0.5px solid #e2ddd6;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.admin-title {
+  margin-bottom: 18px;
+  font-family: Georgia, serif;
+  color: #1a1917;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blog-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 0.5px solid #e2ddd6;
+  border-radius: 10px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.blog-item:hover {
+  background: #f5f2ee;
+  border-color: #ba7517;
+  transform: translateY(-1px);
+}
+
+.blog-title {
+  margin: 0;
+  font-weight: 500;
+  font-family: Georgia, serif;
+  color: #1a1917;
+}
+
+.blog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.action-button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.edit-button {
+  background: #ba7517;
+  color: #fff;
+}
+
+.delete-button {
+  background: #e0d4ca;
+  color: #2c2c2a;
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+}
+
+.edit-button:hover {
+  background: #9a5d14;
+}
+
+.delete-button:hover {
+  background: #cbc1b8;
+}
+
+.status {
+  text-align: center;
+  margin-top: 20px;
+  color: #888780;
+}
+
+.status.error {
+  color: #a32d2d;
+}
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-button {
+  padding: 8px 14px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  background-color: #45a049;
+}

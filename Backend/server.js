@@ -10,7 +10,6 @@ const SECRET = "mysecretkey";
 app.get("/blogs", async (req, res) => {
   const fileContent = await fs.readFile("./blogs/blog.json");
   let blogs = JSON.parse(fileContent);
-  console.log(blogs);
   res.json({
     blogs: blogs.map((blogs) => ({
       id: blogs.id,
@@ -63,6 +62,74 @@ app.get("/admin", async (req, res) => {
       date: blogs.date,
     })),
   });
+});
+app.delete("/admin/blog/:id", async (req, res) => {
+  try {
+    const blogId = parseInt(req.params.id);
+    const fileContent = await fs.readFile("./blogs/blog.json", "utf-8");
+    let blogs = JSON.parse(fileContent);
+    const blogIndex = blogs.findIndex((b) => b.id === blogId);
+    if (blogIndex === -1) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+    const deletedBlog = blogs.splice(blogIndex, 1);
+    await fs.writeFile("./blogs/blog.json", JSON.stringify(blogs, null, 2));
+    res.json({
+      message: "Blog deleted successfully",
+      blog: deletedBlog[0],
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Error deleting blog" });
+  }
+});
+app.put("/admin/blog/:id", async (req, res) => {
+  try {
+    const blogId = parseInt(req.params.id);
+    const { title, date, content } = req.body;
+    const fileContent = await fs.readFile("./blogs/blog.json", "utf-8");
+    let blogs = JSON.parse(fileContent);
+    const blogIndex = blogs.findIndex((b) => b.id === blogId);
+    if (blogIndex === -1) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+    blogs[blogIndex] = {
+      ...blogs[blogIndex],
+      title,
+      date,
+      content,
+    };
+
+    await fs.writeFile("./blogs/blog.json", JSON.stringify(blogs, null, 2));
+
+    res.json({
+      message: "Blog updated successfully",
+      blog: blogs[blogIndex],
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Error updating blog" });
+  }
+});
+app.post("/admin/blog", async (req, res) => {
+  try {
+    const { title, date, content } = req.body;
+    const fileContent = await fs.readFile("./blogs/blog.json", "utf-8");
+    let blogs = JSON.parse(fileContent);
+    const newId = blogs.length > 0 ? blogs[blogs.length - 1].id + 1 : 1;
+    const newBlog = {
+      id: newId,
+      title,
+      date,
+      content,
+    };
+    blogs.push(newBlog);
+    await fs.writeFile("./blogs/blog.json", JSON.stringify(blogs, null, 2));
+    res.status(201).json({
+      message: "Blog created successfully",
+      blog: newBlog,
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Error creating blog" });
+  }
 });
 const PORT = 3000;
 // start server

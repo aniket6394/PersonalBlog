@@ -56,3 +56,53 @@ export async function loginUser({ email, password }) {
   localStorage.setItem("token", data.token);
   return data;
 }
+export async function deleteBlogByID({ id, token }) {
+  const url = `http://localhost:3000/admin/blog/${id}`;
+
+  const response = await fetch(url, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete blog");
+  }
+
+  return response.json();
+}
+export async function updateBlog({ token, id, blogData }) {
+  const url = `http://localhost:3000/admin/blog/${id}`;
+
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(blogData),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to update blog");
+  }
+
+  return response.json();
+}
+export async function createBlog({ token, blogData }) {
+  const response = await fetch("http://localhost:3000/admin/blog", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(blogData),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to create blog");
+  }
+
+  return response.json();
+}

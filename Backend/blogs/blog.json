@@ -19,14 +19,44 @@
   },
   {
     "id": 4,
-    "title": "Post-it Notes: A Failed Glue That Stuck Around",
-    "content": "Spencer Silver was trying to create a super-strong adhesive but ended up with a weak, reusable one instead. Years later, his colleague Art Fry used it to bookmark pages in his hymn book. This 'failed' invention became Post-it Notes, one of the most widely used office supplies in the world.",
+    "title": "Vulcanized Rubber: A Sticky Problem Solved",
+    "content": "Charles Goodyear accidentally dropped a mixture of rubber and sulfur onto a hot stove. Instead of melting, it hardened into a durable material. This led to the discovery of vulcanized rubber, which became essential for tires and countless industrial products.",
     "date": "2026-05-06"
   },
   {
     "id": 5,
-    "title": "Coca-Cola: From Medicine to Global Drink",
-    "content": "Coca-Cola was originally invented by John Pemberton as a medicinal tonic. Due to a simple mistake — mixing the syrup with carbonated water instead of plain water — the iconic fizzy drink was born. What started as a pharmacy experiment became one of the most popular beverages in history.",
+    "title": "Post-it Notes: A Weak Glue That Stuck Around",
+    "content": "Spencer Silver was trying to create a strong adhesive but ended up with a weak, reusable glue. Years later, his colleague Art Fry used it to bookmark his hymnal pages. This led to the invention of Post-it Notes, now used everywhere from offices to classrooms.",
     "date": "2026-05-07"
+  },
+  {
+    "id": 6,
+    "title": "Velcro: Inspired by Nature",
+    "content": "Swiss engineer George de Mestral noticed burrs sticking to his clothes and his dog's fur. Under a microscope, he saw tiny hooks that latched onto loops. This observation led to the invention of Velcro, widely used in clothing, shoes, and space equipment.",
+    "date": "2026-05-08"
+  },
+  {
+    "id": 7,
+    "title": "Teflon: A Slippery Surprise",
+    "content": "Roy Plunkett was experimenting with refrigerant gases when he discovered a white, waxy substance that was extremely slippery and heat-resistant. This material became Teflon, now used in non-stick cookware and industrial applications.",
+    "date": "2026-05-09"
+  },
+  {
+    "id": 8,
+    "title": "Super Glue: An Unexpected Bond",
+    "content": "Harry Coover was trying to develop clear plastic for gun sights when he accidentally created a substance that bonded instantly to almost anything. Initially dismissed, it later became known as Super Glue and is now used in medicine and manufacturing.",
+    "date": "2026-05-10"
+  },
+  {
+    "id": 9,
+    "title": "Safety Glass: A Shattered Discovery",
+    "content": "French chemist Edouard Benedictus dropped a glass flask coated with plastic nitrate. Instead of shattering, it cracked but held together. This led to the invention of safety glass, now used in car windshields and protective equipment.",
+    "date": "2026-05-11"
+  },
+  {
+    "id": 10,
+    "title": "Cornflakes: A Breakfast Mistake",
+    "content": "Dr. John Harvey Kellogg and his brother accidentally left cooked wheat sitting out, which went stale. When they tried to process it, it flaked instead of forming dough. This mistake led to the creation of cornflakes, a popular breakfast cereal.",
+    "date": "2026-05-12"
   }
 ]
